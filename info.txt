@@ -1,0 +1,48 @@
+;===============================================================================
+;       Opis dzialania:
+;
+;       1. Struktury
+;          FIELD - struktura opisuje kazde z 81 pol planszy do sudoku; pierwsze
+;                  9 pol to kazda z mozliwosci (0 = mozna wpisac dana cyfre,
+;                  1 = cyfry nie mozna wpisac); pole 'Count' mowi ile jest
+;                  mozliwych wpisow; pole 'Number' podaje wartosc jaka zostala
+;                  rozwiazana
+;
+;       2. Dane
+;          Zadeklarowana jest 81 razy struktura FIELD. Oprocz tego jest tablica
+;          wskaznikow do kolejnych pol generowana w czasie dzialania. Aby
+;          znacznie ulatwic pozniejsze dzialanie najpierw obliczam wskazniki do
+;          kolejnych pol w poziomie, nastepnie do kolejnych pol w pionie a na
+;          koniec do kolejnych pol w danym kwadracie.
+;
+;       3. Kod
+;          a - wczytanie danych z pliku i wypelnienie pol w strukturze
+;          ---------------------------------------------------------------------
+;     +--> b - wykreslenie cyfr w poziomie, pionie i kwadracie, ktore nei beda
+;     |        mogly byc wpisane
+;     |    c - sprawdzenie czy ktores pole ma teraz tylko 1 mozliwosc
+;     |    d - znowu wykreslanie niemozliwych cyfr
+;     |    e - sprawdzenie linii poziomej, pionowej i kwadratu pod wzgledem tego
+;     |        czy dana cyfra wystepuje tam tylko raz
+;     +--< f - petla do b, az do skutku :)
+;
+;       Wielkosc kodu: 575
+;       Wielkosc danych zainicjowanych: 44
+;       Wielkosc danych niezainicjowanych: 1863
+;       Lacznie: 2482
+;	Wielkosc utworzonego pliku: 1,5 kB
+;===============================================================================
+
+	Do ponownego skompilowania wystarczy: 
+	fasm solver.asm
+
+	Program u¿ywamy wedle wymagañ, ale powtórzê tutaj:
+	solver sudoku1.txt
+
+	W wyniku powstaje plik: output.bin z rozwi¹zanym sudoku.
+
+	Kod ma troche komentarzy, mam nadzieje, ze powyzszy ogolny opis
+	dzialania i szczatkowe komentarze w kodzie pomoga zrozumiec niejasnosci 
+	:)
+
+	Reverend//HTBTeam
